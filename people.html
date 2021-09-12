@@ -1,0 +1,35 @@
+<div>
+  <h1>People</h1>
+  <div id="appDiv" class="panel"></div>
+</div>
+<script>
+  (async () => {
+    async function getData() {
+      const url = `https://swapi.dev/api/people/`;
+      const response = await fetch(url);
+      const data = await response.json();
+      return data.results;
+    }
+    const people = await getData();
+    let panel = "";
+    for (let i = 0; i < people.length; i++) {
+      panel += `<div class="card">
+          <img src="../assets/avatar.png" alt="Avatar" />
+          <div class="container">
+              <div style="margin-top: 5px">
+            <strong>${people[i].name}</strong>
+          </div>
+          <div>Height: ${people[i].height} cms</div>
+          <div>Weight: ${people[i].mass} lbs</div>
+          <div>Eye Color: ${people[i].eye_color}</div>
+          <div>Skin Color: ${people[i].skin_color}</div>
+          <div>Hair Color: ${people[i].hair_color}</div>
+          <div>Gender: ${people[i].gender}</div>
+          </div>
+        </div>`;
+    }
+    document.getElementById("appDiv").innerHTML = panel;
+    console.log(res);
+  })();
+</script>
+<link rel="stylesheet" href="/src/styles.css" />

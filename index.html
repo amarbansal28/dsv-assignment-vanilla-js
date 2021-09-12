@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Parcel Sandbox</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <div>
+      <ul>
+        <li>
+          <a onclick="setIframeSrc('/home.html')">Home</a>
+        </li>
+        <li>
+          <a onclick="setIframeSrc('/people.html')">People</a>
+        </li>
+        <li>
+          <a onclick="setIframeSrc('/films.html')">Films</a>
+        </li>
+        <li>
+          <a onclick="setIframeSrc('/species.html')">Species</a>
+        </li>
+      </ul>
+    </div>
+    <div id="app">
+      <iframe
+        frameborder="0"
+        style="width: 100%; height: 500px;"
+        id="main-iframe"
+      >
+      </iframe>
+    </div>
+    <script>
+      function setIframeSrc(value) {
+        document.getElementById("main-iframe").src = value;
+      }
+      setIframeSrc("/home.html");
+    </script>
+  </body>
+</html>

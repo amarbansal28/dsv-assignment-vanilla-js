@@ -1,0 +1,32 @@
+<div>
+  <h1>Films</h1>
+  <div id="appDiv" class="panel"></div>
+</div>
+<script>
+  (async () => {
+    async function getData() {
+      const url = `https://swapi.dev/api/films/`;
+      const response = await fetch(url);
+      const data = await response.json();
+      return data.results;
+    }
+    const films = await getData();
+    let panel = "";
+    for (let i = 0; i < films.length; i++) {
+      panel += `<div class="card">
+      <div class="container">
+        <div style="margin-top: 5px;">
+          <strong>${films[i].title}</strong>
+        </div>
+        <div>Episode: ${films[i].episode_id}</div>
+        <div>Director: ${films[i].director}</div>
+        <div>Producer: ${films[i].producer}</div>
+        <div>Release Date: ${films[i].release_date}</div>
+      </div>
+    </div>`;
+    }
+    document.getElementById("appDiv").innerHTML = panel;
+    console.log(res);
+  })();
+</script>
+<link rel="stylesheet" href="/src/styles.css" />
